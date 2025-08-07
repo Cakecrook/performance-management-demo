@@ -1,8 +1,13 @@
+import { employeeResolver } from './employeeResolver';
+import { userResolver } from './userResolver';
+
 export const resolvers = {
   Query: {
-    employees: () => [
-      { id: '1', name: 'Riley Thatcher', title: 'Senior Engineer' },
-      { id: '2', name: 'Tessa Navarro', title: 'Software Developer' },
-    ],
+    ...userResolver.Query,
+    ...employeeResolver.Query,
+  },
+  Mutation: {
+    ...userResolver.Mutation,
+    ...employeeResolver.Mutation,
   },
 };
